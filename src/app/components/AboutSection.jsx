@@ -5,15 +5,6 @@ import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
-    title: "Hobby",
-    id: "hobby",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Basket</li>
-      </ul>
-    ),
-  },
-  {
     title: "Education",
     id: "education",
     content: (
