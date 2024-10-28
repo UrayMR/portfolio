@@ -27,7 +27,7 @@ const TAB_DATA = [
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("hobby");
+  const [tab, setTab] = useState("education");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -80,12 +80,15 @@ const AboutSection = () => {
             About Me
           </h2>
           <p className="text-sm sm:text-base lg:text-lg">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi
-            labore expedita assumenda vero? Qui cumque maiores magni quaerat
-            quisquam dolorem possimus alias error saepe corporis ex, perferendis
-            incidunt quod obcaecati placeat odio architecto quidem iusto porro
-            veritatis? Tempore accusamus earum nam aliquam aliquid, eveniet
-            consequuntur ipsum amet, voluptatibus ab repellendus!
+            Saya adalah Uray Muhammad Rajsyafiq yang merupakan mahasiswa
+            semester 3 Informatika di UPN "Veteran" Jawa Timur. Saya memiliki
+            dedikasi dan minat tinggi dalam dunia programming dan design. Adapun
+            berbagai macam project yang sudah pernah saya kerjakan dengan
+            berbagai macam tuntutan, karena hampir seluruh project yang saya
+            kerjakan memiliki batas waktu pengerjaan. Saya mempunyai daya
+            tangkap yang sangat baik dalam mempelajari algoritma dan bahasa
+            pemrograman dikarenakan berbagai macam pengalaman yang saya miliki
+            ketika masih di sekolah dasar.
           </p>
           <div className="mt-6 flex flex-row justify-start gap-2 sm:mt-8">
             <TabButton
@@ -102,7 +105,9 @@ const AboutSection = () => {
             </TabButton>
           </div>
           <div className="mt-6 sm:mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+            {TAB_DATA.find((t) => t.id === tab)
+              ? TAB_DATA.find((t) => t.id === tab).content
+              : "The requested tab is not available."}
           </div>
         </div>
       </div>
