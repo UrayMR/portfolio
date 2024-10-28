@@ -89,12 +89,6 @@ const AboutSection = () => {
           </p>
           <div className="mt-6 flex flex-row justify-start gap-2 sm:mt-8">
             <TabButton
-              selectTab={() => handleTabChange("hobby")}
-              active={tab === "hobby"}
-            >
-              Hobby
-            </TabButton>
-            <TabButton
               selectTab={() => handleTabChange("education")}
               active={tab === "education"}
             >
