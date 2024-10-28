@@ -3,19 +3,69 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(-100%, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate(-50%, 30px) rotate(5deg);
+  }
+  20% {
+    transform: translate(0%, 0) rotate(-5deg);
+  }
+  30% {
+    transform: translate(50%, 30px) rotate(5deg);
+  }
+  45% {
+    transform: translate(100%, 0) rotate(0deg);
+  }
+  65% {
+    transform: translate(50%, 30px) rotate(5deg);
+  }
+  80% {
+    transform: translate(0%, 0) rotate(-5deg);
+  }
+  90% {
+    transform: translate(-50%, 0) rotate(5deg);
+  }
+  100% {
+    transform: translate(-100%, 0) rotate(0deg);
+  }
 }
