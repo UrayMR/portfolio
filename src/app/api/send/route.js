@@ -1,19 +1,11 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend("re_5E8CE8mu_G73misnYiTHzqrSMMEq3F7VK");
 
 export async function POST(req) {
   try {
     const { email, subject, message } = await req.json();
-
-    // Debug log
-    console.log("Received request:", { email, subject, message });
-    console.log("API Key exists:", !!process.env.RESEND_API_KEY);
-
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error("RESEND_API_KEY is not configured");
-    }
 
     const data = await resend.emails.send({
       from: "onboarding@resend.dev",
@@ -28,8 +20,6 @@ export async function POST(req) {
         </>
       ),
     });
-
-    console.log("Resend API Response:", data);
 
     return NextResponse.json({ success: true, data });
   } catch (error) {
